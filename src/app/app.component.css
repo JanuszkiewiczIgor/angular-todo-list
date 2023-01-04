@@ -1,0 +1,68 @@
+button.help
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+h1
+{
+    color: black;
+}
+
+.form-item-margin
+{
+    margin-bottom: 7px;
+}
+
+.container
+{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: crimson;
+    overflow: auto;
+}
+
+.form-button
+{
+    margin-right: 10px;
+}
+
+div.header
+{
+    position: relative;
+    margin: auto;
+    margin-top: 50px;
+    padding: 50px;
+    width: 20%;
+    height: auto;
+    min-height: 20%;
+    background-color: red;
+    border-radius: 25px;
+}
+
+span.item.done
+{
+    text-decoration: line-through;
+    text-decoration-color: black;
+}
+
+div.list
+{
+    color: darkgrey;
+    position: relative;
+    margin: auto;
+    margin-top: 50px;
+    padding: 50px;
+    width: 15%;
+    min-height: 100px;
+    height: auto;
+    text-align: left;
+    border-radius: 25px;
+    background-color: brown;
+    margin-bottom: 50px;
+}

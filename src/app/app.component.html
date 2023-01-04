@@ -1,0 +1,39 @@
+<div class="container">
+	<button class="help" (click)="help()">How it works<br />(console)</button>
+	<div class="header">
+		<h1>TODO LIST</h1>
+		<button (click)="devButton()">dev button</button>
+		<form class="form">
+			<input #item type="text" placeholder="Item" class="item-input form-item-margin" id="item-input" required />
+			<br />
+			<input #date type="date" class="item-date form-item-margin" id="item-date" value="{{ today }}" min="{{ today }}" />
+			<br />
+			<br />
+			<input type="button" class="form-button" value="Add Item" (click)="addItem(item.value, date.value); item.value=''; date.value=today" />
+			<input type="button" class="form-button" value="Clear List" (click)="clearList();" />
+		</form>
+	</div>
+	<div *ngIf="items.length != 0; then list else empty_list"></div>
+	<ng-template #empty_list>
+		<div class="list">
+			<h1>No todos</h1>
+		</div>
+	</ng-template>
+	<ng-template #list>
+		<div class="list">
+			<select #sort (change)="sortList(sort.value)">
+				<option value="1" selected>Wszystkie</option>
+				<option value="2">W trakcie</option>
+				<option value="3">Zakończone</option>
+			</select>
+			<br />
+			<br />
+			<div class="item" *ngFor="let item of items_list; let i = index">
+				<span *ngIf="!item.done; else done" (click)="deleteItem(i)"><span class="item">{{i + 1}}. {{ item.todo }} ({{ item.date }})</span></span>
+				<ng-template #done>
+					<span (click)="deleteItem(i)"><span class="item done">{{i + 1}}. {{ item.todo }} ({{ item.date }})</span></span>
+				</ng-template>
+			</div>
+		</div>
+	</ng-template>
+</div>
